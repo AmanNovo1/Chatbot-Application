@@ -1,0 +1,44 @@
+esphome:
+  name: aman
+
+esp8266:
+  board: d1
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "123456789"
+
+ota:
+  - platform: esphome
+    password: "123456789"
+
+wifi:
+  ssid: "D-LUFFY"
+  password: "123456789"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Aman Fallback Hotspot"
+    password: "EYwTQmEgeKWX"
+
+captive_portal:
+
+switch:
+  - platform: gpio
+    pin:
+      number: GPIO2
+      inverted: true
+    name: "built-in"
+  
+  - platform: gpio
+    pin:
+      number: D4
+      inverted: true
+    name: "Bulb"
+
+web_server:
+  port: 80
+  version: 3
